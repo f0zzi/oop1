@@ -109,4 +109,5 @@ public:
 			marks[marksQuantity++] = mark;
 		}
 	}
+	
 };

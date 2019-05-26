@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Student.h"
+#include "Functions.h"
 using namespace std;
 
 int main()
@@ -10,6 +11,7 @@ int main()
 	st1.ShowFullInfo();
 	st1.AddMark(89);
 	st1.ShowFullInfo();
-
+	Student st2 = Initialize();
+	st2.ShowFullInfo();
 	return 0;
 }
