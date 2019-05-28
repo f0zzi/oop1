@@ -1,10 +1,16 @@
 #pragma once
+#include <ctime>
+#include <cstdlib>
 #include "Student.h"
 using namespace std;
 
+const char* surnames[10] =
+{ "test1", "test2", "test3", "test4", "test5",
+"test6", "test7", "test8", "test9", "test10" };
+
 Student Initialize()
 {
-	int recordBook, marksQuantity, mark; 
+	int recordBook, marksQuantity, mark;
 	char surname[20] = "";
 	cout << "Enter students surname: ";
 	cin >> surname;
@@ -36,4 +42,15 @@ Student Initialize()
 		marks[i] = mark;
 	}
 	return Student(recordBook, marksQuantity, marks, surname);
+}
+Student InitializeRandomly()
+{
+	int recordBook = rand() + 1;
+	int marksQuantity = (rand() % 4) + 1;
+	int* marks = new int[marksQuantity];
+	for (int i = 0; i < marksQuantity; i++)
+	{
+		marks[i] = (rand() % Student::GetMarkMaxLimit()) + 1;
+	}
+	return Student(recordBook, marksQuantity, marks, surnames[rand() % 10]);
 }

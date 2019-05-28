@@ -5,15 +5,16 @@ using namespace std;
 
 int main()
 {
-	Student st1(1111, 3, new int[3]{ 4,5,7 }, "test");
-	st1.ShowFullInfo();
-	st1.SetMark(2, 99);
-	st1.ShowFullInfo();
-	st1.AddMark(89);
-	st1.ShowFullInfo();
-	Student st2 = Initialize();
-	st2.ShowFullInfo();
-	Student st3 = Initialize();
-	st3.ShowFullInfo();
+	srand(time(nullptr));
+	Student group[2];
+	for (int i = 0; i < 2; i++)
+	{
+		group[i].ShowFullInfo();
+	}
+	Student* group1 = new Student[2];
+	for (int i = 0; i < 2; i++)
+	{
+		//group1[i]{ InitializeRandomly() };
+	}
 	return 0;
 }
