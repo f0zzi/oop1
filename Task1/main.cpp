@@ -6,15 +6,9 @@ using namespace std;
 int main()
 {
 	srand(time(nullptr));
-	Student group[2];
-	for (int i = 0; i < 2; i++)
-	{
-		group[i].ShowFullInfo();
-	}
-	Student* group1 = new Student[2];
-	for (int i = 0; i < 2; i++)
-	{
-		//group1[i]{ InitializeRandomly() };
-	}
+	Student* group[2];
+	group[1] = new Student{InitializeRandomly()};
+	group[1]->ShowFullInfo();
+	group[0]->ShowFullInfo();
 	return 0;
 }
