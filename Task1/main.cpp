@@ -10,5 +10,6 @@ int main()
 	group[1] = new Student{InitializeRandomly()};
 	group[1]->ShowFullInfo();
 	group[0]->ShowFullInfo();
+	//test
 	return 0;
 }
