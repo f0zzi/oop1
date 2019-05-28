@@ -32,7 +32,7 @@ Student Initialize()
 			cin >> mark;
 			if (mark < Student::GetMarkMinLimit() || mark > Student::GetMarkMaxLimit())
 				cout << "Invalid input. Mark must be in range 0-100. Try again.\n";
-		} while (true);
+		} while (mark < Student::GetMarkMinLimit() || mark > Student::GetMarkMaxLimit());
 		marks[i] = mark;
 	}
 	return Student(recordBook, marksQuantity, marks, surname);
