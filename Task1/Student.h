@@ -65,6 +65,14 @@ public:
 	{
 		return marksQuantity;
 	}
+	static int GetMarkMaxLimit()
+	{
+		return markMaxLimit;
+	}
+	static int GetMarkMinLimit()
+	{
+		return markMinLimit;
+	}
 	void ShowFullInfo() const
 	{
 		cout << "Student: " << GetSurname() << "   Record book #" << GetRecordBook() << "   Avarage mark: " << GetAvarageMark() << endl;

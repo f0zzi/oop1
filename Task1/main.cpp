@@ -13,5 +13,7 @@ int main()
 	st1.ShowFullInfo();
 	Student st2 = Initialize();
 	st2.ShowFullInfo();
+	Student st3 = Initialize();
+	st3.ShowFullInfo();
 	return 0;
 }
