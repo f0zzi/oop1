@@ -4,9 +4,9 @@
 #include "Student.h"
 using namespace std;
 
-const char* surnames[10] =
-{ "test1", "test2", "test3", "test4", "test5",
-"test6", "test7", "test8", "test9", "test10" };
+const char* surnames[11] =
+{ "Honcharuk", "Khlypavka", "Martynyuk", "Shkoda", "Kobalava", "Kobylyanska",
+"Mayevsk", "Dubina", "Semenyuk", "Malchevskyy", "Bilous" };
 
 Student Initialize()
 {
@@ -46,11 +46,58 @@ Student Initialize()
 Student InitializeRandomly()
 {
 	int recordBook = rand() + 1;
-	int marksQuantity = (rand() % 4) + 1;
+	int marksQuantity = (rand() % 5) + 1;
 	int* marks = new int[marksQuantity];
 	for (int i = 0; i < marksQuantity; i++)
 	{
 		marks[i] = (rand() % Student::GetMarkMaxLimit()) + 1;
 	}
-	return Student(recordBook, marksQuantity, marks, surnames[rand() % 10]);
+	return Student(recordBook, marksQuantity, marks, surnames[rand() % 11]);
+}
+void ShowGroup(Student * *group, int groupSize)
+{
+	if (group == nullptr || groupSize <= 0)
+		cout << "Group is empty.\n";
+	else
+	{
+		for (int i = 0; i < groupSize; i++)
+		{
+			cout << "Student #" << setw(2) << i + 1 << " ";
+			group[i]->ShowFullInfo();
+		}
+	}
+}
+Student& GetMaxAverage(Student * *group, int groupSize)
+{
+	int avarage = 0, avarageMax = 0, index = 0;
+	for (int i = 0; i < groupSize; i++)
+	{
+		avarage = group[i]->GetAvarageMark();
+		if (avarageMax < avarage)
+		{
+			index = i;
+			avarageMax = avarage;
+		}
+	}
+	return *group[index];
+}
+void ShowLowMarks(Student** group, int groupSize)
+{
+	if (group == nullptr || groupSize <= 0)
+		cout << "Group is empty.\n";
+	else
+	{
+		for (int i = 0; i < groupSize; i++)
+		{
+			for (int j = 0; j < group[i]->GetMarksQuantity(); j++)
+			{
+				if (group[i]->GetMarks()[j] <= Student::GetMarkMaxLimit() / 3)
+				{
+					cout << "Student #" << setw(2) << i + 1 << " ";
+					group[i]->ShowFullInfo();
+					break;
+				}
+			}
+		}
+	}
 }

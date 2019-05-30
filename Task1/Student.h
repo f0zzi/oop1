@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cstring>
+#include <iomanip>
 using namespace std;
 
 class Student
@@ -35,7 +36,7 @@ public:
 	{
 		if (marks != nullptr && marksQuantity > 0)
 		{
-			cout << "Subjects/marks: ";
+			cout << "\t    Subjects/marks: ";
 			for (int i = 0; i < marksQuantity; i++)
 			{
 				cout << i + 1 << ": " << marks[i] << "  ";
@@ -65,6 +66,10 @@ public:
 	{
 		return marksQuantity;
 	}
+	int* GetMarks() const
+	{
+		return marks;
+	}
 	static int GetMarkMaxLimit()
 	{
 		return markMaxLimit;
@@ -75,7 +80,7 @@ public:
 	}
 	void ShowFullInfo() const
 	{
-		cout << "Student: " << GetSurname() << "   Record book #" << GetRecordBook() << "   Avarage mark: " << GetAvarageMark() << endl;
+		cout << "Surname: " << setw(11) << GetSurname() << "   Record book #" << GetRecordBook() << "\tAvarage mark: " << GetAvarageMark() << endl;
 		ShowMarks();
 	}
 	double GetAvarageMark() const
@@ -117,5 +122,5 @@ public:
 			marks[marksQuantity++] = mark;
 		}
 	}
-	
+
 };
